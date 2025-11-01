@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - LKR Trendz</title>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #111 0%, #000 100%);
+      color: #FFD700;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 { font-size: 24px; margin-bottom: 20px; }
+
+    .checkout-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .checkout-item {
+      background: rgba(20,20,20,0.9);
+      border-radius: 15px;
+      padding: 15px;
+      width: 90%;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(255,215,0,0.2);
+    }
+
+    .checkout-item img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .checkout-total {
+      margin: 25px auto;
+      background: rgba(20,20,20,0.85);
+      padding: 15px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 350px;
+      box-shadow: 0 0 15px rgba(255,215,0,0.1);
+      font-weight: 600;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 90%;
+      max-width: 350px;
+      margin: 20px auto;
+      background: rgba(20,20,20,0.85);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,215,0,0.1);
+    }
+
+    input, textarea, select {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .place-order-btn {
+      padding: 12px;
+      font-weight: 600;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #FFD700, #cfa300);
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      background: #FFD700;
+      color: #000;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛒 Checkout</h1>
+
+  <div class="checkout-container" id="checkout-container"></div>
+  <div class="checkout-total" id="checkout-total"></div>
+
+  <!-- Checkout Form -->
+  <form id="checkout-form">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="tel" id="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+    <textarea id="address" placeholder="Address" rows="3" required></textarea>
+    <select id="payment" required>
+      <option value="">Select Payment Method</option>
+      <option value="COD">Cash on Delivery</option>
+      <option value="UPI">UPI</option>
+      <option value="Card">Credit/Debit Card</option>
+      <option value="NetBanking">Net Banking</option>
+    </select>
+    <button type="submit" class="place-order-btn">Place Order</button>
+  </form>
+
+  <a href="cart.html" class="back-btn">← Back to Cart</a>
+
+  <script>
+    const checkoutContainer = document.getElementById("checkout-container");
+    const checkoutTotal = document.getElementById("checkout-total");
+    const checkoutForm = document.getElementById("checkout-form");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function renderCheckout() {
+      if(cart.length === 0){
+        checkoutContainer.innerHTML = "<p>Your cart is empty 😢</p>";
+        checkoutTotal.style.display = "none";
+        checkoutForm.style.display = "none";
+        return;
+      }
+
+      let total = 0;
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const div = document.createElement("div");
+        div.classList.add("checkout-item");
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <p><strong>${item.name}</strong></p>
+          <p>₹${item.price} × ${item.quantity} = ₹${itemTotal}</p>
+        `;
+        checkoutContainer.appendChild(div);
+      });
+
+      checkoutTotal.textContent = "Total Amount: ₹" + total;
+    }
+
+    checkoutForm.addEventListener("submit", (e) => {
+      e.preventDefault(); // prevent page reload
+
+      const name = document.getElementById("name").value;
+      const mobile = document.getElementById("mobile").value;
+      const address = document.getElementById("address").value;
+      const payment = document.getElementById("payment").value;
+
+      if(!name || !mobile || !address || !payment){
+        alert("Please fill all details!");
+        return;
+      }
+
+
+
+
+      
+      // Prepare order summary
+      let total = 0;
+      let details = `🎉 Thank you for your order, ${name}!\n\nOrder Summary:\n\n`;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        details += `${item.name} × ${item.quantity} = ₹${itemTotal}\n`;
+      });
+
+      details += `\nTotal Paid: ₹${total}\n`;
+      details += `Payment Method: ${payment}\n`;
+      details += `Delivery Address: ${address}\n`;
+      details += `Mobile: ${mobile}`;
+
+      alert(details);
+
+      // Clear cart after order
+      localStorage.removeItem("cart");
+      window.location.href = "index.html"; // redirect to home
+    });
+
+    renderCheckout();
+  </script>
+
+</body>
+</html>

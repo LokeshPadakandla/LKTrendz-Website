@@ -1,0 +1,281 @@
+/* ===== Reset ===== */
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #000 0%, #111 100%);
+  color: #FFD700;
+  padding-bottom: 70px;
+  overflow-x: hidden;
+}
+
+/* ===== Top Navbar ===== */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid #FFD70055;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  z-index: 100;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 15px rgba(255, 215, 0, 0.1);
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFD700;
+  letter-spacing: 0.6px;
+  text-shadow: 0 0 10px #FFD70066;
+}
+.highlight { color: #fff; }
+
+/* ===== Search Box ===== */
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #111;
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin: 0 8px;
+  border: 1px solid #FFD70055;
+  transition: 0.3s;
+}
+.search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #FFD700;
+  font-size: 13px;
+  outline: none;
+}
+.search-box input::placeholder {
+  color: #FFD70099;
+}
+.search-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #FFD700;
+  cursor: pointer;
+}
+
+/* ===== Login Button ===== */
+.login-btn {
+  background: linear-gradient(90deg, #FFD700, #cfa300);
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
+.login-btn:hover {
+  background: linear-gradient(90deg, #fff, #FFD700);
+  transform: scale(1.05);
+}
+/* ===== Hero Section ===== */
+.hero {
+  margin-top: 80px; /* space for top navbar */
+  display: flex;
+  flex-direction: row-reverse; /* image left, text right */
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: linear-gradient(135deg, #000, #111);
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 5px 25px rgba(255, 215, 0, 0.2);
+  gap: 15px;
+}
+
+.hero-img {
+  width: 130px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.hero-text {
+  flex: 1;
+  color: #FFD700;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* top-aligned */
+  text-align: left;
+}
+.hero-text h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff; /* changed from gold to white */
+  margin-bottom: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+.hero-text p {
+  font-size: 13px;
+  color: #FFD700cc;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-flex;          /* wrap content & enable flex centering */
+  justify-content: center;       /* center text horizontally */
+  align-items: center;           /* center text vertically */
+  background: linear-gradient(90deg, #FFD700, #cfa300);
+  color: #000;
+  padding: 6px 14px;             /* slightly smaller padding for compact look */
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(255,215,0,0.3);
+  transition: 0.3s ease;
+  width: auto;                   /* ensure button width adjusts to text */
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+  .hero {
+    flex-direction: row-reverse; /* keep image left */
+    gap: 10px;
+  }
+  .hero-img {
+    width: 100px;
+  }
+  .hero-text h1 {
+    font-size: 18px;
+  }
+  .hero-text p {
+    font-size: 12px;
+  }
+}
+
+
+/* ===== Products Section ===== */
+.products {
+  padding: 20px 15px;
+}
+.products h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 0 10px #FFD70055;
+  margin-bottom: 10px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.card {
+  background: linear-gradient(180deg, #111 0%, #000 100%);
+  border: 1px solid #FFD70044;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255,215,0,0.15);
+  text-align: center;
+  padding: 10px;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(255,215,0,0.3);
+}
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 0 10px rgba(255,215,0,0.2);
+}
+.card h3 {
+  font-size: 14px;
+  color: #FFD700;
+  margin-bottom: 4px;
+}
+.price {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.add-btn {
+  border: none;
+  background: linear-gradient(90deg, #FFD700, #cfa300);
+  color: #000;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.add-btn:hover {
+  background: linear-gradient(90deg, #fff, #FFD700);
+}
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ===== Bottom Navbar ===== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: #000;
+  border-top: 1px solid #FFD70033;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 -4px 12px rgba(255,215,0,0.1);
+}
+.bottom-nav a {
+  text-decoration: none;
+  color: #FFD700;
+  font-size: 13px;
+  text-align: center;
+  transition: 0.3s;
+}
+.bottom-nav a span {
+  display: block;
+  font-size: 11px;
+  line-height: 12px;
+}
+.bottom-nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #FFD700;
+}
+/* Add these new/updated styles to the previous CSS */
+
+.products {
+  padding: 25px 15px;
+  border-top: 1px solid #FFD70022;
+  border-bottom: 1px solid #FFD70022;
+  margin-bottom: 15px;
+}
+
+.products h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 0 10px #FFD70055;
+  margin-bottom: 12px;
+  border-left: 3px solid #FFD700;
+  padding-left: 8px;
+}
+

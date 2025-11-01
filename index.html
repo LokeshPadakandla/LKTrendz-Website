@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LK Trendz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== Top Navbar ===== -->
+  <header class="topnav">
+    <div class="logo">LK<span class="highlight">Trendz</span></div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search products..." />
+      <button class="search-btn">🔍</button>
+    </div>
+
+    <button class="login-btn">Login</button>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1><span></span></h1>
+      <p>Luxury fashion that defines your confidence.</p>
+      <a href="#" class="btn">Shop Now</a>
+    </div>
+    <img src="hero.png" class="hero-img" alt="Fashion">
+  </section>
+
+ 
+<!-- Men’s Clothing -->
+<h2>👔 Men's Clothing</h2>
+<div class="product-grid">
+  <div class="card">
+    <a class="card-link" href="shirts.html">
+      <img src="shirt1.webp" alt="Shirts">
+      <h3>Shirts</h3>
+      <p class="offer">Formal Shirts from ₹399</p>
+    </a>
+  </div>
+ 
+  <div class="card">
+    <a class="card-link" href="jeans.html">
+      <img src="jean1.webp" alt="Jeans">
+      <h3>Jeans</h3>
+      <p class="offer">Jeans from ₹799</p>
+    </a>
+  </div>
+   <div class="card">
+    <a class="card-link" href="tshirts.html">
+      <img src="tshirt1.webp" alt="T-Shirts">
+      <h3>T-Shirts</h3>
+      <p class="offer">Premium T-Shirts from ₹299</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="suits.html">
+      <img src="suit1.webp" alt="Blazers">
+      <h3>Blazers</h3>
+      <p class="offer">Blazers from ₹1,299</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="inners.html">
+      <img src="ban1.webp" alt="Inners">
+      <h3>Inners</h3>
+      <p class="offer">Inners from ₹199</p>
+    </a>
+  </div>
+</div>
+
+<!-- Women’s Clothing -->
+<h2>👗 Women's Clothing</h2>
+<div class="product-grid">
+  <div class="card">
+    <a class="card-link" href="dresses.html">
+      <img src="dress1.webp" alt="Dresses">
+      <h3>Dresses</h3>
+      <p class="offer">Dresses from ₹799</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="sarees.html">
+      <img src="saree1.webp" alt="Sarees">
+      <h3>Sarees</h3>
+      <p class="offer">Sarees from ₹999</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="kurtas.html">
+      <img src="kurta1.webp" alt="Kurtas & Kurtis">
+      <h3>Kurtas & Kurtis</h3>
+      <p class="offer">Kurtas & Kurtis from ₹399</p>
+    </a>
+  </div>
+
+  <div class="card">
+    <a class="card-link" href="gowns.html">
+      <img src="Gown1.webp" alt="Gowns">
+      <h3>Gowns</h3>
+      <p class="offer">Gowns from ₹1,499</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="dhuppatas.html">
+      <img src="Dupatta1.webp" alt="Dhuppatas">
+      <h3>Dhuppatas</h3>
+      <p class="offer">Dhuppatas from ₹299</p>
+    </a>
+  </div>
+</div>
+
+  <!-- ===== Bottom Navbar ===== -->
+ <nav class="bottom-nav">
+  <a href="index.html" data-page="home"><i class="fas fa-home"></i><span>Home</span></a>
+  <a href="products.html" data-page="shop"><i class="fas fa-bag-shopping"></i><span>Shop</span></a>
+  <a href="about.html" data-page="about"><i class="fas fa-info-circle"></i><span>About</span></a>
+ <a href="cart.html">
+  <i class="fas fa-cart-shopping"></i>
+  <span>Cart</span>
+  <span class="cart-count" id="cart-count">0</span>
+</a>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  // Initialize cart
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartCount = document.getElementById("cart-count");
+  if (cartCount) cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  // Bottom nav clicks
+  const bottomLinks = document.querySelectorAll(".bottom-nav a");
+  bottomLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const page = link.dataset.page;
+      if (page === "home") window.location.href = "index.html";
+      else if (page === "shop") window.location.href = "products.html";
+      else if (page === "about") window.location.href = "about.html";
+      else if (page === "cart") window.location.href = "cart.html";
+    });
+  });
+});
+ </script>
+ <script>
+  const searchInput = document.querySelector(".search-box input");
+  const searchBtn = document.querySelector(".search-btn");
+
+  const searchRedirect = () => {
+    const query = searchInput.value.trim().toLowerCase();
+
+    if (!query) return;
+
+    // Men’s products
+    if (query.includes("shirt")) window.location.href = "shirts.html";
+    else if (query.includes("tshirt") || query.includes("t-shirt")) window.location.href = "tshirts.html";
+    else if (query.includes("jean")) window.location.href = "jeans.html";
+    else if (query.includes("blazer") || query.includes("jacket")) window.location.href = "blazers.html";
+    else if (query.includes("inner")) window.location.href = "inners.html";
+
+    // Women’s products
+    else if (query.includes("dress")) window.location.href = "dresses.html";
+    else if (query.includes("saree")) window.location.href = "sarees.html";
+    else if (query.includes("gown")) window.location.href = "gowns.html";
+    else if (query.includes("dhupatta")) window.location.href = "dhuppatas.html";
+    else if (query.includes("kurta") || query.includes("kurti")) window.location.href = "kurtas.html";
+
+    else alert("No matching product found!");
+  };
+
+  // Trigger search on Enter key
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") searchRedirect();
+  });
+
+  // Trigger search on button click
+  searchBtn.addEventListener("click", searchRedirect);
+</script>
+
+
+<script src="script.js"></script>
+
+
+
+</body>
+</html>
+
+

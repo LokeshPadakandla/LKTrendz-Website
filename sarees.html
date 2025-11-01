@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sarees - LKR Trendz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#000;color:#FFD700;padding-bottom:70px;}
+header{background:#111;color:#FFD700;text-align:center;padding:12px;font-size:20px;font-weight:700;box-shadow:0 3px 8px rgba(255,215,0,0.2);}
+.products{padding:15px;}
+.products h2{font-size:18px;color:#fff;margin-bottom:10px;text-align:center;text-shadow:0 0 10px #FFD700;}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:15px;}
+.card{background:#111;border-radius:15px;padding:10px;text-align:center;box-shadow:0 0 12px rgba(255,215,0,0.2);transition:transform 0.3s ease;}
+.card:hover{transform:scale(1.05);}
+.card img{width:100%;border-radius:10px;}
+.card h3{color:#fff;font-size:14px;margin:8px 0;}
+.rating{color:#FFD700;font-size:13px;}
+.price{font-size:14px;color:#fff;margin:5px 0;}
+.add-btn{background:linear-gradient(90deg,#FFD700,#cfa300);color:#000;border:none;padding:6px 14px;border-radius:20px;font-weight:600;font-size:13px;cursor:pointer;transition:0.3s ease;box-shadow:0 0 10px rgba(255,215,0,0.3);}
+.add-btn:hover{transform:scale(1.05);background:#fff;color:#000;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#111;display:flex;justify-content:space-around;align-items:center;padding:8px 0;border-top:1px solid #FFD70033;}
+.bottom-nav a{color:#FFD700;text-decoration:none;font-size:13px;display:flex;flex-direction:column;align-items:center;transition:color 0.3s ease;position:relative;}
+.bottom-nav a:hover{color:#fff;}
+.bottom-nav span{font-size:10px;}
+.cart-count{position:absolute;top:-4px;right:-8px;background:red;color:white;font-size:10px;font-weight:bold;padding:2px 6px;border-radius:10px;}
+@media(max-width:480px){header{font-size:18px;} .card h3{font-size:13px;} .add-btn{font-size:12px;padding:5px 12px;}}
+</style>
+</head>
+<body>
+<header>👘 Women's Sarees</header>
+
+<section class="products">
+<h2>Sarees Collection</h2>
+<div class="product-grid">
+  <div class="card">
+    <img src="Womens/saree1.webp" alt="Silk Saree">
+    <h3>Premium Silk Saree</h3>
+    <p class="rating">⭐⭐⭐⭐⭐ (4.8)</p>
+    <p class="price">₹999</p>
+    <button class="add-btn" data-name="Premium Silk Saree" data-price="999">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="Womens/saree2.webp" alt="Cotton Saree">
+    <h3>Elegant Cotton Saree</h3>
+    <p class="rating">⭐⭐⭐⭐ (4.2)</p>
+    <p class="price">₹699</p>
+    <button class="add-btn" data-name="Elegant Cotton Saree" data-price="699">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="Womens/saree3.webp" alt="Chiffon Saree">
+    <h3>Lightweight Chiffon Saree</h3>
+    <p class="rating">⭐⭐⭐⭐☆ (4.5)</p>
+    <p class="price">₹849</p>
+    <button class="add-btn" data-name="Lightweight Chiffon Saree" data-price="849">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="Womens/saree4.webp" alt="Designer Saree">
+    <h3>Designer Party Saree</h3>
+    <p class="rating">⭐⭐⭐⭐⭐ (4.7)</p>
+    <p class="price">₹1,199</p>
+    <button class="add-btn" data-name="Designer Party Saree" data-price="1199">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="Womens/saree5.webp" alt="Banarasi Saree">
+    <h3>Royal Banarasi Saree</h3>
+    <p class="rating">⭐⭐⭐⭐⭐ (4.9)</p>
+    <p class="price">₹1,499</p>
+    <button class="add-btn" data-name="Royal Banarasi Saree" data-price="1499">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="Womens/saree6.webp" alt="Georgette Saree">
+    <h3>Printed Georgette Saree</h3>
+    <p class="rating">⭐⭐⭐⭐ (4.3)</p>
+    <p class="price">₹799</p>
+    <button class="add-btn" data-name="Printed Georgette Saree" data-price="799">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="Womens/saree7.webp" alt="Kanchipuram Saree">
+    <h3>Kanchipuram Silk Saree</h3>
+    <p class="rating">⭐⭐⭐⭐⭐ (4.9)</p>
+    <p class="price">₹1,799</p>
+    <button class="add-btn" data-name="Kanchipuram Silk Saree" data-price="1799">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="Womens/saree8.webp" alt="Tissue Saree">
+    <h3>Golden Tissue Saree</h3>
+    <p class="rating">⭐⭐⭐⭐☆ (4.4)</p>
+    <p class="price">₹1,099</p>
+    <button class="add-btn" data-name="Golden Tissue Saree" data-price="1099">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="Womens/saree9.webp" alt="Organza Saree">
+    <h3>Organza Floral Saree</h3>
+    <p class="rating">⭐⭐⭐⭐ (4.1)</p>
+    <p class="price">₹899</p>
+    <button class="add-btn" data-name="Organza Floral Saree" data-price="899">Add to Cart</button>
+  </div>
+</div>
+
+
+</section>
+
+<nav class="bottom-nav">
+<a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+<a href="products.html"><i class="fas fa-bag-shopping"></i><span>Shop</span></a>
+<a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+<a href="cart.html"><i class="fas fa-cart-shopping"></i><span>Cart</span><span class="cart-count" id="cart-count">0</span></a>
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+const cartCount=document.getElementById("cart-count");
+cartCount.textContent=cart.reduce((sum,item)=>sum+item.quantity,0);
+document.querySelectorAll(".add-btn").forEach(btn=>{
+btn.addEventListener("click",()=>{
+const card=btn.closest(".card");
+const name=btn.dataset.name;
+const price=parseFloat(btn.dataset.price);
+const image=card.querySelector("img").src;
+const existing=cart.find(item=>item.name===name);
+if(existing) existing.quantity+=1;
+else cart.push({name,price,image,quantity:1});
+localStorage.setItem("cart",JSON.stringify(cart));
+cartCount.textContent=cart.reduce((sum,item)=>sum+item.quantity,0);
+btn.textContent="Added ✔";
+btn.style.background="#0f0";
+setTimeout(()=>{btn.textContent="Add to Cart";btn.style.background="linear-gradient(90deg,#FFD700,#cfa300)";},1500);
+});
+});
+});
+</script>
+</body>
+</html>

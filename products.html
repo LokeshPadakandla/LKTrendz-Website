@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop - LKR Trendz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #111; color: #FFD700; padding-bottom: 70px; }
+    h2 { font-size: 20px; margin: 20px 15px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; padding: 0 15px 30px 15px; }
+    .card { background: #222; border-radius: 15px; padding: 10px; text-align: center; box-shadow: 0 0 15px rgba(255,215,0,0.3); transition: transform 0.3s; }
+    .card:hover { transform: scale(1.03); box-shadow: 0 0 25px rgba(255,215,0,0.5); }
+    .card img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 8px; }
+    .card h3 { font-size: 14px; margin-bottom: 5px; color:#FFD700; }
+    .offer { color: #FFD700cc; font-size: 12px; font-weight: 500; }
+    a.card-link { color: inherit; text-decoration: none; display:block; }
+    @media(max-width:480px){ h2{font-size:18px;} .card h3{font-size:12px;} .offer{font-size:11px;} }
+    .back-btn { margin: 15px; padding:6px 12px; background:#000; color:#FFD700; border-radius:20px; cursor:pointer; border:1px solid #FFD700; display:inline-block; text-decoration:none; }
+    .back-btn:hover { background:#FFD700; color:#000; }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="back-btn">← Back to Home</a>
+
+<!-- Men’s Clothing -->
+<h2>👔 Men's Clothing</h2>
+<div class="product-grid">
+  <div class="card">
+    <a class="card-link" href="shirts.html">
+      <img src="Mens/shirt1.webp" alt="Shirts">
+      <h3>Shirts</h3>
+      <p class="offer">Formal Shirts from ₹399</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="tshirts.html">
+      <img src="Mens/tshirt1.webp" alt="T-Shirts">
+      <h3>T-Shirts</h3>
+      <p class="offer">Premium T-Shirts from ₹299</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="jeans.html">
+      <img src="Mens/jean1.webp" alt="Jeans">
+      <h3>Jeans</h3>
+      <p class="offer">Jeans from ₹799</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="suits.html">
+      <img src="Mens/suit1.webp" alt="Blazers">
+      <h3>Blazers</h3>
+      <p class="offer">Blazers from ₹1,299</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="inners.html">
+      <img src="Mens/ban1.webp" alt="Inners">
+      <h3>Inners</h3>
+      <p class="offer">Inners from ₹199</p>
+    </a>
+  </div>
+</div>
+
+<!-- Women’s Clothing -->
+<h2>👗 Women's Clothing</h2>
+<div class="product-grid">
+  <div class="card">
+    <a class="card-link" href="dresses.html">
+      <img src="Womens/dress1.webp" alt="Dresses">
+      <h3>Dresses</h3>
+      <p class="offer">Dresses from ₹799</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="sarees.html">
+      <img src="Womens/saree1.webp" alt="Sarees">
+      <h3>Sarees</h3>
+      <p class="offer">Sarees from ₹999</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="kurtas.html">
+      <img src="Womens/kurta1.webp" alt="Kurtas & Kurtis">
+      <h3>Kurtas & Kurtis</h3>
+      <p class="offer">Kurtas & Kurtis from ₹399</p>
+    </a>
+  </div>
+
+  <div class="card">
+    <a class="card-link" href="gowns.html">
+      <img src="Womens/gown1.webp" alt="Gowns">
+      <h3>Gowns</h3>
+      <p class="offer">Gowns from ₹1,499</p>
+    </a>
+  </div>
+  <div class="card">
+    <a class="card-link" href="dhuppatas.html">
+      <img src="Womens/Dupatta1.webp" alt="Dhuppatas">
+      <h3>Dhuppatas</h3>
+      <p class="offer">Dhuppatas from ₹299</p>
+    </a>
+  </div>
+</div>
+
+<!-- ===== Bottom Navbar ===== -->
+  <nav class="bottom-nav">
+  <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+  <a href="#"><i class="fas fa-bag-shopping"></i><span>Shop</span></a>
+  <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+  <a href="cart.html"><i class="fas fa-cart-shopping"></i><span>Cart</span></a>
+</nav>
+</body>
+</html>
+
+

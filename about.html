@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>About - LK Trendz</title>
+
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ===== Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111 0%, #000 100%);
+      color: #FFD700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 25px 15px;
+      text-align: center;
+    }
+
+    /* ===== Header ===== */
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #FFD700;
+      text-shadow: 0 0 10px rgba(255,215,0,0.5);
+      margin-bottom: 20px;
+    }
+
+    /* ===== Card Container ===== */
+    .about-card {
+      background: rgba(20, 20, 20, 0.9);
+      border: 1px solid #FFD70033;
+      border-radius: 20px;
+      padding: 25px 20px;
+      width: 95%;
+      max-width: 400px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(255,215,0,0.2);
+    }
+
+    /* ===== Profile Photo / Initial ===== */
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFD700, #cfa300);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 25px rgba(255,215,0,0.3);
+    }
+
+    /* ===== Info Section ===== */
+    .info {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      font-size: 14px;
+      color: #FFD700cc;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #FFD70022;
+      padding-bottom: 5px;
+    }
+
+    .info strong {
+      color: #FFD700;
+      font-weight: 600;
+    }
+
+    .info a {
+      color: #FFD700;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .info a:hover {
+      color: #fff;
+    }
+
+    /* ===== Social Icons ===== */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 25px;
+    }
+
+    .socials a {
+      font-size: 28px;
+      color: #FFD700;
+      transition: all 0.3s ease;
+    }
+
+    .socials a:hover {
+      color: #fff;
+      transform: scale(1.2);
+      text-shadow: 0 0 12px #FFD700;
+    }
+
+    /* ===== Back Button ===== */
+    .back-btn {
+      margin-top: 30px;
+      display: inline-block;
+      text-decoration: none;
+      background-color: #FFD700;
+      color: #000;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #FFD70088;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 22px;
+      }
+      .about-card {
+        padding: 20px 15px;
+      }
+      .info p {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>About LKTrendz</h1>
+  </header>
+
+  <div class="about-card">
+    <div class="profile-pic">L</div>
+
+    <div class="info">
+      <p><strong>Name:</strong> Lokesh Padakandla</p>
+      <p><strong>Email:</strong> <a href="mailto:lokeshpadakandla49@gmail.com">lokeshpadakandla49@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:7731876426">7731876426</a></p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/lokesh_padakandla/" target="_blank">@lokesh_padakandla</a></p>
+      <p><strong>YouTube:</strong> <a href="https://youtube.com/@lokesh_padakandla?si=PUGaBBRhIs2DrXuK" target="_blank">LK Trendz Channel</a></p>
+    </div>
+
+    <p style="font-size:13px; color:#FFD700aa; margin-top:10px;">
+      I'm <b>Lokesh Padakandla</b>, the creator of <b>LK Trendz</b> — a mobile-optimized e-commerce platform
+      bringing style, luxury, and simplicity together. ✨
+    </p>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/lokesh_padakandla/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@lokesh_padakandla?si=PUGaBBRhIs2DrXuK" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Back to Home button -->
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </div>
+
+  <footer>
+    © 2025 LK Trendz | Designed by Lokesh Padakandla
+  </footer>
+
+</body>
+</html>
+
+

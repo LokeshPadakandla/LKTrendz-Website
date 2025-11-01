@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cart - LKR Trendz</title>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #111 0%, #000 100%);
+      color: #FFD700;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    }
+
+    .cart-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .cart-item {
+      background: rgba(20, 20, 20, 0.9);
+      border: 1px solid #FFD70044;
+      border-radius: 15px;
+      padding: 15px;
+      width: 90%;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .cart-item img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .cart-item p {
+      margin: 5px 0;
+    }
+
+    .remove-btn {
+      border: none;
+      padding: 7px 14px;
+      border-radius: 8px;
+      background: #ff3333;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .total-section {
+      margin: 25px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(20, 20, 20, 0.85);
+      border-radius: 15px;
+      padding: 15px;
+      width: 90%;
+      max-width: 350px;
+      box-shadow: 0 0 15px rgba(255,215,0,0.1);
+      text-align: center;
+    }
+
+    .total-section p {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .buy-all-btn {
+      border: none;
+      background: linear-gradient(90deg, #FFD700, #cfa300);
+      color: #000;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .buy-all-btn:hover {
+      background: #fff;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      background: #FFD700;
+      color: #000;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+    }
+
+    .back-btn:hover {
+      background: #fff;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      .total-section p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛒 Your Cart</h1>
+
+  <div class="cart-container" id="cart-container"></div>
+
+  <div class="total-section" id="total-section" style="display:none;">
+    <p id="cart-total"></p>
+    <button class="buy-all-btn" onclick="buyAll()">Buy All</button>
+  </div>
+
+  <a href="index.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    const cartContainer = document.getElementById("cart-container");
+    const totalSection = document.getElementById("total-section");
+    const cartTotal = document.getElementById("cart-total");
+
+    // Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function renderCart() {
+      cartContainer.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty 😢</p>";
+        totalSection.style.display = "none";
+        return;
+      }
+let total = 0;
+cart.forEach((item, index) => {
+  // Ensure quantity exists and is a number
+  if(!item.quantity) item.quantity = 1;
+
+  const div = document.createElement("div");
+  div.classList.add("cart-item");
+  div.innerHTML = `
+    <img src="${item.image}" alt="${item.name}">
+    <p><strong>${item.name}</strong></p>
+    <p>₹${item.price} × ${item.quantity}</p>
+    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+  `;
+  cartContainer.appendChild(div);
+
+  total += Number(item.price) * Number(item.quantity);
+});
+
+      
+      totalSection.style.display = "flex";
+      cartTotal.textContent = "Total Amount: ₹" + total;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function buyAll() {
+      if(cart.length === 0){
+        alert("Your cart is empty!");
+        return;
+      }
+      window.location.href = "checkout.html";
+    }
+
+    // Initial render
+    renderCart();
+  </script>
+
+</body>
+</html>
+
+
+
