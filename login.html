@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Register - LKR Trendz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* ===== Reset ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#000,#111); color:#FFD700; min-height:100vh; display:flex; flex-direction:column; }
+
+    /* ===== Navbar ===== */
+    .topnav { display:flex; justify-content:center; align-items:center; padding:12px; background:#000; box-shadow:0 3px 10px rgba(255,215,0,0.2); position:sticky; top:0; z-index:100; }
+    .topnav .logo { font-size:20px; font-weight:700; }
+    .topnav .highlight { color:#FFD700; }
+
+    /* ===== Form Section ===== */
+    .form-section { flex:1; display:flex; justify-content:center; align-items:center; padding:20px; }
+    .form-card { background:#222; padding:30px 25px; border-radius:25px; width:100%; max-width:380px; display:flex; flex-direction:column; gap:20px; box-shadow:0 0 25px rgba(255,215,0,0.4); text-align:center; transition:transform 0.3s, box-shadow 0.3s; }
+    .form-card:hover { transform:translateY(-3px); box-shadow:0 0 35px rgba(255,215,0,0.6); }
+    .form-card h2 { color:#FFD700; font-size:24px; margin-bottom:10px; }
+    form { display:flex; flex-direction:column; gap:15px; position:relative; }
+
+    .input-wrapper { position:relative; }
+    .input-wrapper input { width:100%; padding:12px 40px 12px 35px; border-radius:15px; border:none; outline:none; font-size:14px; background:#111; color:#fff; transition:box-shadow 0.3s; }
+    .input-wrapper input:focus { box-shadow:0 0 12px #FFD700; }
+
+    .input-wrapper .icon { position:absolute; left:10px; top:50%; transform:translateY(-50%); font-size:16px; color:#FFD700; }
+    .input-wrapper .eye { position:absolute; right:10px; top:50%; transform:translateY(-50%); font-size:16px; color:#FFD700; cursor:pointer; }
+
+    .btn { width:100%; padding:12px; border-radius:25px; border:none; background:linear-gradient(90deg,#FFD700,#cfa300); color:#000; font-weight:600; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s; }
+    .btn:hover { transform:scale(1.05); box-shadow:0 0 15px #FFD700; }
+
+    .form-card p { color:#FFD700cc; font-size:13px; }
+    .form-card a { color:#fff; text-decoration:underline; cursor:pointer; }
+
+    /* ===== Mobile Optimization ===== */
+    @media(max-width:480px){
+      .form-card{padding:25px 20px; max-width:90%;}
+      .input-wrapper input{font-size:13px; padding:10px 35px 10px 30px;}
+      .btn{padding:10px;}
+      .form-card h2{font-size:20px;}
+    }
+  </style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="logo">LKR<span class="highlight">Trendz</span></div>
+</header>
+
+<section class="form-section">
+  <div class="form-card" id="loginCard">
+    <h2 id="formTitle">Login</h2>
+    <form id="form">
+      <div class="input-wrapper">
+        <span class="icon">✉️</span>
+        <input type="text" id="userInput" placeholder="Email or Mobile" required>
+      </div>
+      <div class="input-wrapper">
+        <span class="icon">🔒</span>
+        <input type="password" id="password" placeholder="Password" required>
+        <span class="eye" id="togglePassword">👁️</span>
+      </div>
+      <button type="submit" class="btn" id="submitBtn">Login</button>
+    </form>
+    <p id="toggleText">Don't have an account? <a id="switchForm">Create Account</a></p>
+  </div>
+</section>
+
+<script>
+  // Show/Hide password
+  const passwordInput = document.getElementById('password');
+  const togglePassword = document.getElementById('togglePassword');
+  togglePassword.addEventListener('click', () => {
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+  });
+
+  // Toggle form
+  const formTitle = document.getElementById('formTitle');
+  const submitBtn = document.getElementById('submitBtn');
+  const toggleText = document.getElementById('toggleText');
+  const switchForm = document.getElementById('switchForm');
+  const form = document.getElementById('form');
+  const userInput = document.getElementById('userInput');
+
+  let isLogin = true;
+
+  switchForm.addEventListener('click', () => {
+    isLogin = !isLogin;
+    form.reset();
+    if(isLogin){
+      formTitle.textContent = 'Login';
+      submitBtn.textContent = 'Login';
+      userInput.placeholder = 'Email or Mobile';
+      toggleText.innerHTML = 'Don\'t have an account? <a id="switchForm">Create Account</a>';
+    } else {
+      formTitle.textContent = 'Register';
+      submitBtn.textContent = 'Register';
+      userInput.placeholder = 'Email';
+      // Add mobile input dynamically
+      if(!document.getElementById('mobileInput')){
+        const mobileWrapper = document.createElement('div');
+        mobileWrapper.classList.add('input-wrapper');
+        mobileWrapper.innerHTML = `<span class="icon">📱</span>
+                                   <input type="text" id="mobileInput" placeholder="Mobile Number" required>`;
+        form.insertBefore(mobileWrapper, passwordInput.parentNode);
+      }
+      toggleText.innerHTML = 'Already have an account? <a id="switchForm">Login</a>';
+    }
+
+    document.getElementById('switchForm').addEventListener('click', () => switchForm.click());
+  });
+
+  // Handle login/register
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const password = passwordInput.value;
+    if(isLogin){
+      const inputVal = userInput.value;
+      const savedUser = JSON.parse(localStorage.getItem('user'));
+      if(savedUser && (savedUser.email === inputVal || savedUser.mobile === inputVal) && savedUser.password === password){
+        alert('Login successful!');
+        window.location.href = 'index.html';
+      } else {
+        alert('Invalid credentials!');
+      }
+    } else {
+      const email = userInput.value;
+      const mobile = document.getElementById('mobileInput').value;
+      localStorage.setItem('user', JSON.stringify({email, mobile, password}));
+      alert('Account created successfully! You can now login.');
+      switchForm.click();
+    }
+  });
+</script>
+
+</body>
+</html>
+
