@@ -1,6 +1,6 @@
 // ===== Hero Typing Effect =====
 const heroHeading = document.querySelector(".hero-text h1 span");
-const heroText = "Discover Fashion That Defines You......";
+const heroText = "Fashion That Defines You...";
 let index = 0;
 
 function typeHeroText() {
@@ -77,3 +77,4 @@ bottomLinks.forEach((link) => {
 
 // ===== Initial Cart Count =====
 updateCartCount();
+
